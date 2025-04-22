@@ -1,15 +1,17 @@
 {
   "name": "transformer-paper-site",
   "version": "1.0.0",
-  "description": "",
+  "description": "Transformer 架构详解网站",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/generate-data.js && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export",
+    "generate-data": "node scripts/generate-data.js"
   },
-  "keywords": [],
+  "keywords": ["transformer", "neural network", "attention", "nlp"],
   "author": "",
   "license": "ISC",
   "dependencies": {

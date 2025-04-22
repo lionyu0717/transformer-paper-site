@@ -3,28 +3,16 @@
 import { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
+import transformerData from '../data/transformer-data.json';
 
 export default function Home() {
   const [sections, setSections] = useState([]);
   const [introduction, setIntroduction] = useState("");
   
   useEffect(() => {
-    async function fetchContent() {
-      try {
-        // 从公共API端点获取Markdown内容
-        const response = await fetch('/api/content');
-        if (!response.ok) {
-          throw new Error('Failed to fetch content');
-        }
-        const data = await response.json();
-        setIntroduction(data.introduction);
-        setSections(data.sections);
-      } catch (error) {
-        console.error('Error fetching content:', error);
-      }
-    }
-    
-    fetchContent();
+    // 使用静态导入的数据
+    setIntroduction(transformerData.introduction);
+    setSections(transformerData.sections);
   }, []);
 
   return (
