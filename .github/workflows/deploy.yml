@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+# 设置 GITHUB_TOKEN 的权限，使其能够写入仓库
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
