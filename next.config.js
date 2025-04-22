@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['arxiv.org'],
+    unoptimized: true,
   },
   output: 'export',
   basePath: process.env.NODE_ENV === 'production' ? '/transformer-paper-site' : '',
