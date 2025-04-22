@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6" />
+    </marker>
+    <marker id="redArrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444" />
+    </marker>
+  </defs>
+  
+  <!-- 背景和标题 -->
+  <rect width="100%" height="100%" fill="#f8fafc" rx="5" ry="5"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1e293b">自注意力机制 (Self-Attention)</text>
+  
+  <!-- 输入向量盒子 -->
+  <g transform="translate(100, 100)">
+    <rect width="120" height="50" rx="5" ry="5" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="60" y="30" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1e40af">输入向量 X</text>
+  </g>
+  
+  <!-- 线性变换盒子 Q, K, V -->
+  <g transform="translate(100, 200)">
+    <rect width="120" height="50" rx="5" ry="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="60" y="30" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1e40af">Q (查询)</text>
+  </g>
+  
+  <g transform="translate(300, 200)">
+    <rect width="120" height="50" rx="5" ry="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="60" y="30" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1e40af">K (键)</text>
+  </g>
+  
+  <g transform="translate(500, 200)">
+    <rect width="120" height="50" rx="5" ry="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="60" y="30" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1e40af">V (值)</text>
+  </g>
+  
+  <!-- 点积注意力盒子 -->
+  <g transform="translate(200, 300)">
+    <rect width="200" height="60" rx="5" ry="5" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="100" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#5b21b6">点积注意力计算</text>
+    <text x="100" y="45" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5b21b6">QK^T/√d_k → softmax</text>
+  </g>
+  
+  <!-- 输出盒子 -->
+  <g transform="translate(500, 300)">
+    <rect width="120" height="60" rx="5" ry="5" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+    <text x="60" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#166534">加权求和</text>
+  </g>
+  
+  <!-- 最终输出 -->
+  <g transform="translate(350, 400)">
+    <rect width="170" height="50" rx="5" ry="5" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+    <text x="85" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#047857">自注意力输出</text>
+  </g>
+  
+  <!-- 连接线 -->
+  <!-- 输入到Q, K, V -->
+  <line x1="160" y1="150" x2="160" y2="200" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="160" y1="130" x2="360" y2="200" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="160" y1="130" x2="560" y2="200" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Q, K 到点积注意力 -->
+  <line x1="160" y1="250" x2="240" y2="300" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="360" y1="250" x2="280" y2="300" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 点积注意力到加权求和 -->
+  <line x1="400" y1="330" x2="500" y2="330" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- V到加权求和 -->
+  <line x1="560" y1="250" x2="560" y2="300" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 加权求和到输出 -->
+  <line x1="560" y1="360" x2="435" y2="400" stroke="#10b981" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 红色关注线 -->
+  <path d="M 300 150 C 400 120, 450 120, 500 150" stroke="#ef4444" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#redArrowhead)" fill="none"/>
+  <text x="400" y="110" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#dc2626">关注权重</text>
+</svg> 
